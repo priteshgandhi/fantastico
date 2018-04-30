@@ -6,12 +6,12 @@ var cors=require('cors');
 var path=require('path');
     
 var app=express();
-var portNo=3000;
+//var portNo=3000;
 var route=require('./routes/route');
 var question_route=require('./routes/question_route');
 
 
-var port = process.env.PORT || process.env.OPENSHIFT_NODEJS_PORT || 8080,
+var port = process.env.PORT || process.env.OPENSHIFT_NODEJS_PORT || 3000,
     ip   = process.env.IP   || process.env.OPENSHIFT_NODEJS_IP || '0.0.0.0',
     mongoURL = process.env.OPENSHIFT_MONGODB_DB_URL || process.env.MONGO_URL,
     mongoURLLabel = "";
@@ -34,8 +34,15 @@ if (mongoURL == null && process.env.DATABASE_SERVICE_NAME) {
     mongoURL += mongoHost + ':' +  mongoPort + '/' + mongoDatabase;
 
   }
-}
 
+  else{
+	  mongoURL='mongodb://localhost:27017/contactlist';
+  }
+}
+else{
+	  mongoURL='mongodb://localhost:27017/contactlist';
+}
+console.log(mongoURL);
 
 mongoose.connect(mongoURL);
 mongoose.connection.on('connected',function(){
@@ -63,8 +70,8 @@ app.get('/',function(request,response){
 });
 
 
-app.listen(portNo,function(){
-    console.log("server started at port "+  portNo);
+app.listen(port,function(){
+    console.log("server started at port "+  port);
 });
 
 
