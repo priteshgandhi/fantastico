@@ -66,7 +66,13 @@ app.use('/index',route);
 app.use('/index',question_route);
 
 app.get('/',function(request,response){
+    response.sendStatus(200);
     response.send("Hello World");
+});
+
+app.get('/pagecount',function(request,response){
+  response.sendStatus(200);
+  response.send("Hello World");
 });
 
 
