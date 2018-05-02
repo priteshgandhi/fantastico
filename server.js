@@ -66,13 +66,15 @@ app.use('/index',route);
 app.use('/index',question_route);
 
 app.get('/',function(request,response){
-    response.sendStatus(200);
-    response.send("Hello World");
+  response.writeHead(200, {
+    'Content-Type': 'application/json'
+  });
 });
-
 app.get('/pagecount',function(request,response){
-  response.sendStatus(200);
-  response.send("Hello World");
+  response.writeHead(200, {
+    'Content-Type': 'application/json'
+  });
+  //response.send("Hello World");
 });
 
 
