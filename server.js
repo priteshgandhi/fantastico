@@ -36,11 +36,11 @@ if (mongoURL == null && process.env.DATABASE_SERVICE_NAME) {
   }
 
   else{
-	  mongoURL='mongodb://10.128.14.77:27017/sampledb';
+	  mongoURL='mongodb://localhost:27017/sampledb';
   }
 }
 else{
-	  mongoURL='mongodb://10.128.14.77:27017/sampledb';
+	  mongoURL='mongodb://localhost:27017/sampledb';
 }
 console.log(mongoURL);
 
@@ -69,6 +69,7 @@ app.get('/',function(request,response){
   response.writeHead(200, {
     'Content-Type': 'application/json'
   });
+  response.send("Hello World");
 });
 app.get('/pagecount',function(request,response){
   response.writeHead(200, {
