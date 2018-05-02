@@ -36,11 +36,11 @@ if (mongoURL == null && process.env.DATABASE_SERVICE_NAME) {
   }
 
   else{
-	  mongoURL='mongodb://localhost:27017/sampledb';
+	  mongoURL='mongodb://10.128.14.77:27017/sampledb';
   }
 }
 else{
-	  mongoURL='mongodb://localhost:27017/sampledb';
+	  mongoURL='mongodb://10.128.14.77:27017/sampledb';
 }
 console.log(mongoURL);
 
